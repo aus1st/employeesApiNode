@@ -3,10 +3,14 @@ import bodyParser from 'body-parser';
 //local imports
 import { connectDb } from './db.js';
 import employeeRoutes from './controllers/employee.controller.js';
+
 const app = express();
 let port = process.env.PORT || 8000;
+
 app.use(bodyParser.json());
 app.use('/api/employees', employeeRoutes);
+
+
 async function StartApp() {
     try {
         await connectDb();
